@@ -1,0 +1,58 @@
+Ce document est utilisé comme prompt utilisateur guidant la génération du dataset dans GPT5.1
+
+Ci après et dans cet ordre : Paramètre,Description,Échelle/Valeurs suggérées
+
+Pluie récente,Cumul de pluie sur 24h (déclenche la libération de zoospores),mm (ex : 0, 5, 10, 20)
+Durée d’humectation,Durée pendant laquelle les feuilles restent mouillées (rosée + pluie),Heures (0–24h)
+Température moyenne,Optimum : 16–22°C (infection bloquée <10°C ou >25°C),°C (10–30°C)
+Pression d’inoculum,Historique de la maladie dans la parcelle (oospores dans le sol/feuilles),0–1 (faible à élevé)
+Stade phénologique,Sensibilité maximale pour les feuilles jeunes (BBCH 12–17) et à la floraison (BBCH 61–69)
+
+Points clés pour le modèle :
+
+
+Seuil de pluie :
+
+≥ 10 mm en 24h = risque élevé si température dans l’optimum.
+5–10 mm = risque moyen (à combiner avec la durée d’humectation).
+Répartir les pluies dans un intervalle de 0 à 45 mm, selon une répartition réaliste pour un climat méditerranéen.
+
+Durée d’humectation :
+
+≥ 6h de feuilles mouillées = condition nécessaire pour l’infection.
+
+
+Température :
+
+16–22°C = optimum.
+<10°C ou >25°C = infection très limitée.
+
+
+Pression d’inoculum :
+
+Si historique de mildiou l’année précédente, considérer un inoculum initial élevé (0.8–1).
+Proxy de pression d'inoculum : nombre d'années d'infection au cours des 3 années précédentes.
+
+majoration selon stade phénologique : 
+Dans l'ordre ci dessous : Stade phénologique,Période (BBCH),Majorations proposées,Justification
+Jeunes feuilles,12–17 (débourrement),×1.3,Tissus tendres, sensibles, mais moins critiques que la floraison.
+Floraison,61–69,×1.7,Stade le plus critique : inflorescences vulnérables, pertes potentielles majeures.
+Autres stades,<12, 18–60, >69,×1.0 (risque de base),Moins sensibles (sauf si conditions météo extrêmes).
+
+Exemple de lignes dataset 
+
+{"messages": [{"role": "user", "content": "Stade_phenologique: autre\nHumectation_continue: 4\nTemperature_moyenne: 15\nPluie_24h: 2\nInoculum: 0.3"}, {"role": "assistant", "content": "Risque : faible\nRecommandation : Surveillance normale. Aucun traitement nécessaire sauf si conditions météo favorables prévues."}]}
+{"messages": [{"role": "user", "content": "Stade_phenologique: jeunes_feuilles\nHumectation_continue: 8\nTemperature_moyenne: 18\nPluie_24h: 5\nInoculum: 0.5"}, {"role": "assistant", "content": "Risque : moyen\nRecommandation : Appliquer un traitement préventif à base de cuivre dans les 48h, surtout sur les jeunes feuilles. Renouveler si pluie annoncée."}]}
+{"messages": [{"role": "user", "content": "Stade_phenologique: floraison\nHumectation_continue: 14\nTemperature_moyenne: 20\nPluie_24h: 12\nInoculum: 0.7"}, {"role": "assistant", "content": "Risque : élevé\nRecommandation : Traiter en urgence avec un fongicide systémique autorisé ou du cuivre sous 24h. Cibler les inflorescences et renouveler après pluie."}]}
+{"messages": [{"role": "user", "content": "Stade_phenologique: autre\nHumectation_continue: 18\nTemperature_moyenne: 21\nPluie_24h: 15\nInoculum: 0.9"}, {"role": "assistant", "content": "Risque : élevé\nRecommandation : Traiter immédiatement avec un fongicide systémique malgré le stade peu sensible, en raison des conditions météo critiques. Surveiller l'apparition de symptômes."}]}
+
+dataset de1500 exemples avec :
+
+40% de cas faibles (pour éviter la surréaction).
+40% de cas moyens (pour affiner les nuances).
+20% de cas élevés/critiques (pour les urgences).
+
+
+
+
+
