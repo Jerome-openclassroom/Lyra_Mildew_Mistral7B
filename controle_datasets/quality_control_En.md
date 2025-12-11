@@ -42,6 +42,8 @@ These constraints prevent unrealistic combinations (e.g., heavy rain with zero w
 ### 3. 📊 Training Dataset Statistics (1500 samples)
 
 A full statistical audit confirmed **zero strict duplicates**, including manual inspection to resolve LLM false positives.
+**The 24-hour rainfall distribution reveals a realistic predominance of light to moderate events (0–10 mm), consistent with the agro-climatic context used to build the dataset.**  
+[View 24-hour rainfall distribution (PNG)](./rain_statistics.png)
 
 **Rainfall distribution (per 5 mm bins):**
 - 0–5 mm: **29.47%**  
@@ -54,6 +56,9 @@ A full statistical audit confirmed **zero strict duplicates**, including manual 
 - 35–40 mm: **3.33%**  
 - 40–45 mm: **0.87%**  
 
+**This histogram presents the distribution of continuous leaf wetness durations grouped into 4-hour classes, with peaks between 4–12 h reflecting conditions commonly associated with primary and secondary infections.**  
+[View leaf wetness duration distribution (PNG)](./moisture_statistics.png)
+
 **Leaf wetness duration (per 4-hour bins):**
 - 0–4 h: **9.20%**  
 - 4–8 h: **32.87%**  
@@ -62,6 +67,8 @@ A full statistical audit confirmed **zero strict duplicates**, including manual 
 - 16–20 h: **7.87%**  
 - 20–24 h: **2.87%**  
 - 24–28 h: **0.53%**
+**The chart below shows the distribution of mean temperatures in the dataset, grouped into 5°C intervals, with a realistic concentration around the optimal range for downy mildew development (14–24°C).**  
+[View mean temperature distribution (PNG)](./temperature_statistics.png)
 
 **Temperature distribution (per 5°C bins):**
 - 9–14°C: **15.93%**  
@@ -101,3 +108,4 @@ This rigorous data preparation ensures that the model learns from:
 - and high-quality synthetic samples engineered for scientific reliability.
 
 The datasets form a solid foundation for accurate, reproducible mildew-risk modeling in viticulture.
+
