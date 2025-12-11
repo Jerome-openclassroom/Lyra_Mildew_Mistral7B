@@ -49,6 +49,9 @@ Ces règles garantissent des combinaisons réalistes et évitent les incohérenc
 
 Aucune occurrence de doublon : **0 doublons stricts détectés et validés visuellement**.
 
+**La distribution des pluies sur 24h met en évidence une forte proportion d’épisodes faibles à modérés (0–10 mm), essentiels à la cohérence biologique du dataset.**  
+[Voir l'histogramme des pluies sur 24h (PNG)](./rain_statistics.png)
+
 **Répartition de la pluie (tranches 5 mm)** :  
 - 0–5 mm : **29.47 %**  
 - 5–10 mm : **25.20 %**  
@@ -60,6 +63,9 @@ Aucune occurrence de doublon : **0 doublons stricts détectés et validés visue
 - 35–40 mm : **3.33 %**  
 - 40–45 mm : **0.87 %**
 
+**Cet histogramme montre la distribution des durées d’humectation par tranches de 4 heures. Les pics observés entre 4–12 h reflètent les conditions fréquemment impliquées dans les infections primaires et secondaires.**  
+[Voir l'histogramme des durées d'humectation (PNG)](./moisture_statistics.png)
+
 **Répartition des humectations (tranches 4h)** :  
 - 0–4 h : **9.20 %**  
 - 4–8 h : **32.87 %**  
@@ -68,6 +74,9 @@ Aucune occurrence de doublon : **0 doublons stricts détectés et validés visue
 - 16–20 h : **7.87 %**  
 - 20–24 h : **2.87 %**  
 - 24–28 h : **0.53 %**
+
+**La figure ci-dessous illustre la répartition des températures moyennes du dataset par tranches de 5°C, confirmant une distribution centrée sur les conditions optimales de développement du mildiou (14–24°C).**  
+[Voir l'histogramme des températures moyennes (PNG)](./temperature_statistics.png)
 
 **Répartition des températures (tranches 5°C)** :  
 - 9–14°C : **15.93 %**  
@@ -114,3 +123,4 @@ La rigueur du contrôle qualité garantit que le modèle apprendra sur des donn�
 - scientifiquement cohérentes.
 
 Ces propriétés sont essentielles pour entraîner un modèle robuste et exploitable en agronomie.
+
