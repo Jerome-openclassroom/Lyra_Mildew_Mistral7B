@@ -1,3 +1,5 @@
+<img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" width="100px" height="auto" />
+
 # Lyra_Mildew_Mistral7B  
 LoRA model for grapevine downy mildew risk assessment  
 ➡️ This is the English documentation (French version available in `README.md`)
