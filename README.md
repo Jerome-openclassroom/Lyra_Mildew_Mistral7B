@@ -1,3 +1,5 @@
+<img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" width="100px" height="auto" />
+
 # Lyra_Mildew_Mistral7B  
 Modèle LoRA pour l’évaluation du risque de mildiou de la vigne  
 ➡️ [English version / Version anglaise](./README_En.md)
